@@ -10,9 +10,11 @@ $('#how-to').on('click', function(e) {
 });
 
 $('#start').on('click', function(e) {
-	console.log(shuffleArray(cardFaces));
+	// console.log(shuffleArray(cardFaces));
 	shuffleArray(cardFaces);
-	letsPlay();
+	console.log(shuffledArray);
+
+	// letsPlay();
 });
 
 
@@ -20,110 +22,110 @@ $('#start').on('click', function(e) {
 
 $('#card-1').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[0]);
 	// letsPlay();
 	// $(this).find('img').attr('src', 'kerouac.jpg');
 })
 
 $('#card-2').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[1]);
 	// letsPlay();
 })
 
 $('#card-3').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[2]);
 	// letsPlay();
 })
 
 $('#card-4').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[3]);
 	// letsPlay();
 })
 
 $('#card-5').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[4]);
 	// letsPlay();
 })
 
 $('#card-6').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[5]);
 	// letsPlay();
 })
 
 $('#card-7').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[6]);
 	// letsPlay();
 })
 
 $('#card-8').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[7]);
 	// letsPlay();
 })
 
 $('#card-9').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[8]);
 	// letsPlay();
 })
 
 $('#card-10').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[9]);
 	// letsPlay();
 })
 
 $('#card-11').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[10]);
 	// letsPlay();
 })
 
 $('#card-12').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[11]);
 	// letsPlay();
 })
 
 $('#card-13').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[12]);
 	// letsPlay();
 })
 
 $('#card-14').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[13]);
 	// letsPlay();
 })
 
 $('#card-15').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[14]);
 	// letsPlay();
 })
 
 $('#card-16').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[15]);
 	// letsPlay();
 })
 
 $('#card-17').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[16]);
 	// letsPlay();
 })
 
 $('#card-18').on('click', function(e) {
 	console.log('this works');
-	displayImage();
+	$(e.target).attr('src', shuffledArray[17]);
 	// letsPlay();
 })
 
@@ -143,7 +145,7 @@ var cardFaces = ["capote.jpg", "capote.jpg", "faulkner.jpg", "faulkner.jpg", "fi
 //     divs = [].slice.call(divs, 1);
 
 
-
+var shuffledArray = [];
 
 var shuffleArray = function(array) {
     var currentIndex = cardFaces.length, temporaryValue, randomIndex;
@@ -156,19 +158,22 @@ var shuffleArray = function(array) {
         cardFaces[randomIndex] = temporaryValue;
     }
     // shuffledArray.push(array);
-    return array;
+    return shuffledArray = array;
 };
 
 
-// var shuffledArray = [];
+// var displayImage = function(e) {
+// 	var target = $(event.target);
+// 	$(target).attr('src', shuffledArray[0]);
+// 	usedImages.push(shuffledArray[0]);
+// };
 
 
-var displayImage = function(e) {
-	var target = $(event.target);
-	for (i = 1; i < cardFaces.length; i++) {
-			$(target).attr('src', cardFaces[i]);
-	}
-};
+// var displayImage = function(){
+// 	for (var i = 0; i < shuffledArray.length; i++) {
+// 		$("#card-1")
+// 	}
+// }
 
 
 // var setImages = function() {
@@ -180,18 +185,18 @@ var displayImage = function(e) {
 // 	})
 // };
 
-var clicks = 0;
+// var clicks = 0;
 
-var playerOneScore = 0;
-var playerTwoScore = 0;
+// var playerOneScore = 0;
+// var playerTwoScore = 0;
 
-var letsPlay = function(e) {
-	var target = $(event.target);
+// var letsPlay = function(e) {
+// 	var target = $(event.target);
 
-	$(target).on('click', function(e) {
-		displayImage();
-	}); 
-}
+// 	$(target).on('click', function(e) {
+// 		displayImage();
+// 	}); 
+// }
 	// if (clicks % 2 !=== 0) {
 	// 	return;
 	// } else if 
