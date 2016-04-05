@@ -1,0 +1,17 @@
+h1 {
+	font-family: 'Merriweather', serif;
+	font-weight: bold;
+	font-size: 50px;
+}
+
+
+.thumbnail {
+	border: 2px solid black;
+	/*display: inline;*/
+	/*height: 180px;
+	width: 134px;*/
+}
+
+button {
+
+}
