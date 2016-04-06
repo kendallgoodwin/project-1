@@ -4,11 +4,14 @@ h1 {
 	font-size: 50px;
 }
 
+.small {
+	
+}
 
 .thumbnail {
-	border: 2px solid black;
+	border: 4px solid black;
 	/*display: inline;*/
-	/*height: 180px;
+/*	height: 180px;
 	width: 134px;*/
 }
 
