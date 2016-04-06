@@ -49,51 +49,62 @@ $(".cards").on("click", function(e){
 	if (e.currentTarget.id === 'card-1') {
 		$(e.target).attr('src', shuffledArray[0]);
 		$(e.target).addClass("clicked");
+		// $(e.target).addClass("match");
 		tempArray.push(shuffledArray[0]);
-
 	} else if (e.currentTarget.id === 'card-2') {
 		$(e.target).attr('src', shuffledArray[1]);
 		$(e.target).addClass("clicked");
+		// $(e.target).addClass("match");
 		tempArray.push(shuffledArray[1]);
 	} else if (e.currentTarget.id === 'card-3') {
 		$(e.target).attr('src', shuffledArray[2]);
 		$(e.target).addClass("clicked");
+		// $(e.target).addClass("match");
 		tempArray.push(shuffledArray[2]);
 	} else if (e.currentTarget.id === 'card-4') {
 		$(e.target).attr('src', shuffledArray[3]);
 		$(e.target).addClass("clicked");
+		// $(e.target).addClass("match");
 		tempArray.push(shuffledArray[3]);
 	} else if (e.currentTarget.id === 'card-5') {
 		$(e.target).attr('src', shuffledArray[4]);
 		$(e.target).addClass("clicked");
+		// $(e.target).addClass("match");
 		tempArray.push(shuffledArray[4]);
 	} else if (e.currentTarget.id === 'card-6') {
 		$(e.target).attr('src', shuffledArray[5]);
 		$(e.target).addClass("clicked");
+		// $(e.target).addClass("match");
 		tempArray.push(shuffledArray[5]);
 	} else if (e.currentTarget.id === 'card-7') {
 		$(e.target).attr('src', shuffledArray[6]);
 		$(e.target).addClass("clicked");
+		// $(e.target).addClass("match");
 		tempArray.push(shuffledArray[6]);
 	} else if (e.currentTarget.id === 'card-8') {
 		$(e.target).attr('src', shuffledArray[7]);
 		$(e.target).addClass("clicked");
+		// $(e.target).addClass("match");
 		tempArray.push(shuffledArray[7]);
 	} else if (e.currentTarget.id === 'card-9') {
 		$(e.target).attr('src', shuffledArray[8]);
 		$(e.target).addClass("clicked");
+		// $(e.target).addClass("match");
 		tempArray.push(shuffledArray[8]);
 	} else if (e.currentTarget.id === 'card-10') {
 		$(e.target).attr('src', shuffledArray[9]);
 		$(e.target).addClass("clicked");
+		// $(e.target).addClass("match");
 		tempArray.push(shuffledArray[9]);
 	} else if (e.currentTarget.id === 'card-11') {
 		$(e.target).attr('src', shuffledArray[10]);
 		$(e.target).addClass("clicked");
+		// $(e.target).addClass("match");
 		tempArray.push(shuffledArray[10]);
 	} else if (e.currentTarget.id === 'card-12') {
 		$(e.target).attr('src', shuffledArray[11]);
 		$(e.target).addClass("clicked");
+		// $(e.target).addClass("match");
 		tempArray.push(shuffledArray[11]);
 	// } else if (e.currentTarget.id === 'card-13') {
 	// 	$(e.target).attr('src', shuffledArray[12]);
@@ -149,6 +160,9 @@ $(".cards").on("click", function(e){
 var playerOneScore = 0;
 var playerTwoScore = 0;
 
+var runningScore1 = $('#playerOneScore')
+var runningScore2 = $('#playerTwoScore')
+
 function checkSameImage(array) {
 	if ((array[0] === array[1]) && (turns === 2)) {
 		console.log("MATCH");
@@ -159,6 +173,7 @@ function checkSameImage(array) {
 		tempArray = [];
 		playerOneScore++;
 		console.log('player one score: ' + playerOneScore);
+		runningScore1.html(playerOneScore);
 	} else if ((array[0] === array[1]) && (turns === 0)) {
 		console.log("MATCH");
 		matchingCards();
@@ -166,6 +181,7 @@ function checkSameImage(array) {
 		playerTwoScore++;
 		console.log('player two score: ' + playerTwoScore);
 		tempArray = [];
+		runningScore2.html(playerTwoScore);
 	} else {
 		match = false;
 		console.log(tempArray);
@@ -180,7 +196,7 @@ function checkSameImage(array) {
 		// 	turnOverCard("card-1");
 		// 	turnOverCard("card-2");
 		// }, 3000);
-		setTimeout(turnOverCard, 3000);
+		setTimeout(turnOverCard, 2000);
 
 		console.log('player one score: ' + playerOneScore);
 		console.log('player two score: ' + playerTwoScore);
@@ -198,6 +214,13 @@ function turnOverCard(e) {
 function matchingCards(e) {
 	$(".clicked").removeClass("clicked");
 }
+
+
+
+// function matchingCardsPlayerOne(e) {
+// 	$(".clicked").removeClass("clicked");
+// 	// $(this).css("border", "blue");
+// }
 
 // function matchingCardsPlayerTwo(e) {
 // 	$(".clicked").removeClass("clicked")
@@ -284,36 +307,42 @@ function matchingCards(e) {
 $('#card-13').on('click', function(e) {
 	$(e.target).attr('src', shuffledArray[12]);
 	$(e.target).addClass("clicked");
+	// $(e.target).addClass("match");
 	tempArray.push(shuffledArray[12]);
 })
 
 $('#card-14').on('click', function(e) {
 	$(e.target).attr('src', shuffledArray[13]);
 	$(e.target).addClass("clicked");
+	// $(e.target).addClass("match");
 	tempArray.push(shuffledArray[13]);
 })
 
 $('#card-15').on('click', function(e) {
 	$(e.target).attr('src', shuffledArray[14]);
 	$(e.target).addClass("clicked");
+	// $(e.target).addClass("match");
 	tempArray.push(shuffledArray[14]);
 })
 
 $('#card-16').on('click', function(e) {
 	$(e.target).attr('src', shuffledArray[15]);
 	$(e.target).addClass("clicked");
+	// $(e.target).addClass("match");
 	tempArray.push(shuffledArray[15]);
 })
 
 $('#card-17').on('click', function(e) {
 	$(e.target).attr('src', shuffledArray[16]);
 	$(e.target).addClass("clicked");
+	// $(e.target).addClass("match");
 	tempArray.push(shuffledArray[16]);
 })
 
 $('#card-18').on('click', function(e) {
 	$(e.target).attr('src', shuffledArray[17]);
 	$(e.target).addClass("clicked");
+	// $(e.target).addClass("match");
 	tempArray.push(shuffledArray[17]);
 })
 
