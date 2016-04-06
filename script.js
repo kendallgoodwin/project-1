@@ -5,6 +5,7 @@ var cardFaces = ["bukowski.jpg", "bukowski.jpg", "capote.jpg", "capote.jpg", "fa
 				"kerouac.jpg", "poe.jpg", "poe.jpg", "thompson.jpg", "thompson.jpg"];
 
 var turns = 0;
+var matches = 0;
 
 var shuffledArray = [];
 var tempArray = [];
@@ -106,24 +107,30 @@ $(".cards").on("click", function(e){
 		$(e.target).addClass("clicked");
 		// $(e.target).addClass("match");
 		tempArray.push(shuffledArray[11]);
-	// } else if (e.currentTarget.id === 'card-13') {
-	// 	$(e.target).attr('src', shuffledArray[12]);
-	// 	tempArray.push(shuffledArray[12]);
-	// } else if (e.currentTarget.id === 'card-14') {
-	// 	$(e.target).attr('src', shuffledArray[13]);
-	// 	tempArray.push(shuffledArray[13]);
-	// } else if (e.currentTarget.id === 'card-15') {
-	// 	$(e.target).attr('src', shuffledArray[14]);
-	// 	tempArray.push(shuffledArray[14]);
-	// } else if (e.currentTarget.id === 'card-16') {
-	// 	$(e.target).attr('src', shuffledArray[15]);
-	// 	tempArray.push(shuffledArray[15]);
-	// } else if (e.currentTarget.id === 'card-17') {
-	// 	$(e.target).attr('src', shuffledArray[16]);
-	// 	tempArray.push(shuffledArray[16]);
-	// } else if (e.currentTarget.id === 'card-18') {
-	// 	$(e.target).attr('src', shuffledArray[17]);
-	// 	tempArray.push(shuffledArray[17]);
+	} else if (e.currentTarget.id === 'card-13') {
+		$(e.target).attr('src', shuffledArray[12]);
+		$(e.target).addClass("clicked");
+		tempArray.push(shuffledArray[12]);
+	} else if (e.currentTarget.id === 'card-14') {
+		$(e.target).attr('src', shuffledArray[13]);
+		$(e.target).addClass("clicked");
+		tempArray.push(shuffledArray[13]);
+	} else if (e.currentTarget.id === 'card-15') {
+		$(e.target).attr('src', shuffledArray[14]);
+		$(e.target).addClass("clicked");
+		tempArray.push(shuffledArray[14]);
+	} else if (e.currentTarget.id === 'card-16') {
+		$(e.target).attr('src', shuffledArray[15]);
+		$(e.target).addClass("clicked");
+		tempArray.push(shuffledArray[15]);
+	} else if (e.currentTarget.id === 'card-17') {
+		$(e.target).attr('src', shuffledArray[16]);
+		$(e.target).addClass("clicked");
+		tempArray.push(shuffledArray[16]);
+	} else if (e.currentTarget.id === 'card-18') {
+		$(e.target).attr('src', shuffledArray[17]);
+		$(e.target).addClass("clicked");
+		tempArray.push(shuffledArray[17]);
 	};
 
 	if (turns === 0) {
@@ -172,20 +179,26 @@ function checkSameImage(array) {
 		console.log(tempArray);
 		tempArray = [];
 		playerOneScore++;
+		matches++;
+		console.log('matches: ' + matches)
 		console.log('player one score: ' + playerOneScore);
 		runningScore1.html(playerOneScore);
 	} else if ((array[0] === array[1]) && (turns === 0)) {
 		console.log("MATCH");
 		matchingCards();
 		console.log(tempArray);
-		playerTwoScore++;
-		console.log('player two score: ' + playerTwoScore);
 		tempArray = [];
+		playerTwoScore++;
+		matches++;
+		console.log('matches: ' + matches)
+		console.log('player two score: ' + playerTwoScore);
+
 		runningScore2.html(playerTwoScore);
 	} else {
 		match = false;
 		console.log(tempArray);
 		console.log("NO MATCH");
+		console.log('matches: ' + matches)
 		//$(".clicked").attr("src", "m.jpg")
 
 
@@ -201,7 +214,8 @@ function checkSameImage(array) {
 		console.log('player one score: ' + playerOneScore);
 		console.log('player two score: ' + playerTwoScore);
 		tempArray = [];
-	}
+	} 
+	getWinner();
 }; 
 
 
@@ -215,6 +229,23 @@ function matchingCards(e) {
 	$(".clicked").removeClass("clicked");
 }
 
+
+
+var getWinner = function() {
+	var winner;
+	if (matches < 9) {
+		return;
+	} else if (matches === 9 && playerOneScore > playerTwoScore) {
+		// winner = Player 1;
+		console.log('Player 1 wins');
+	} else if (matches === 9 && playerOneScore === playerTwoScore) {
+		// winner = tie;
+		console.log("It/s a tie!");
+	} else if (matches === 9 && playerOneScore < playerTwoScore) {
+		// winner = Player 2;
+		console.log('Player 2 wins')
+	} 
+};
 
 
 // function matchingCardsPlayerOne(e) {
@@ -304,47 +335,47 @@ function matchingCards(e) {
 // 	tempArray.push(shuffledArray[11]);
 // })
 
-$('#card-13').on('click', function(e) {
-	$(e.target).attr('src', shuffledArray[12]);
-	$(e.target).addClass("clicked");
-	// $(e.target).addClass("match");
-	tempArray.push(shuffledArray[12]);
-})
+// $('#card-13').on('click', function(e) {
+// 	$(e.target).attr('src', shuffledArray[12]);
+// 	$(e.target).addClass("clicked");
+// 	// $(e.target).addClass("match");
+// 	tempArray.push(shuffledArray[12]);
+// })
 
-$('#card-14').on('click', function(e) {
-	$(e.target).attr('src', shuffledArray[13]);
-	$(e.target).addClass("clicked");
-	// $(e.target).addClass("match");
-	tempArray.push(shuffledArray[13]);
-})
+// $('#card-14').on('click', function(e) {
+// 	$(e.target).attr('src', shuffledArray[13]);
+// 	$(e.target).addClass("clicked");
+// 	// $(e.target).addClass("match");
+// 	tempArray.push(shuffledArray[13]);
+// })
 
-$('#card-15').on('click', function(e) {
-	$(e.target).attr('src', shuffledArray[14]);
-	$(e.target).addClass("clicked");
-	// $(e.target).addClass("match");
-	tempArray.push(shuffledArray[14]);
-})
+// $('#card-15').on('click', function(e) {
+// 	$(e.target).attr('src', shuffledArray[14]);
+// 	$(e.target).addClass("clicked");
+// 	// $(e.target).addClass("match");
+// 	tempArray.push(shuffledArray[14]);
+// })
 
-$('#card-16').on('click', function(e) {
-	$(e.target).attr('src', shuffledArray[15]);
-	$(e.target).addClass("clicked");
-	// $(e.target).addClass("match");
-	tempArray.push(shuffledArray[15]);
-})
+// $('#card-16').on('click', function(e) {
+// 	$(e.target).attr('src', shuffledArray[15]);
+// 	$(e.target).addClass("clicked");
+// 	// $(e.target).addClass("match");
+// 	tempArray.push(shuffledArray[15]);
+// })
 
-$('#card-17').on('click', function(e) {
-	$(e.target).attr('src', shuffledArray[16]);
-	$(e.target).addClass("clicked");
-	// $(e.target).addClass("match");
-	tempArray.push(shuffledArray[16]);
-})
+// $('#card-17').on('click', function(e) {
+// 	$(e.target).attr('src', shuffledArray[16]);
+// 	$(e.target).addClass("clicked");
+// 	// $(e.target).addClass("match");
+// 	tempArray.push(shuffledArray[16]);
+// })
 
-$('#card-18').on('click', function(e) {
-	$(e.target).attr('src', shuffledArray[17]);
-	$(e.target).addClass("clicked");
-	// $(e.target).addClass("match");
-	tempArray.push(shuffledArray[17]);
-})
+// $('#card-18').on('click', function(e) {
+// 	$(e.target).attr('src', shuffledArray[17]);
+// 	$(e.target).addClass("clicked");
+// 	// $(e.target).addClass("match");
+// 	tempArray.push(shuffledArray[17]);
+// })
 
 
 // var displayImage = function(e) {
@@ -352,21 +383,6 @@ $('#card-18').on('click', function(e) {
 // 	$(target).attr('src', shuffledArray[0]);
 // 	usedImages.push(shuffledArray[0]);
 // };
-
-
-// var getWinner = function() {
-// 	var winner;
-// 	if (playerOneScore > playerTwoScore) {
-// 		winner = playerOne;
-// 		console.log('Player One wins');
-// 	} else if (playerOneScore === playerTwoScore) {
-// 		winner = tie;
-// 		console.log("It/s a tie!");
-// 	} else {
-// 		winner = playerTwo;
-// 		console.log('Player Two wins')
-// 	}
-// }
 
 
 // var playAgain = $('#reset');
