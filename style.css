@@ -1,27 +1,8 @@
 h1 {
 	font-family: 'Merriweather', serif;
+
 	font-weight: bold;
 	font-size: 50px;
-}
-
-.small {
-
-}
-
-a:link {
-	color: black;
-}
-
-a:visited {
-	color: black;
-}
-
-a:hover {
-	color: black;
-}
-
-a:active {
-	color: black;
 }
 
 .thumbnail {
@@ -31,6 +12,101 @@ a:active {
 	width: 119px;
 }
 
-button {
+.btn {
 	margin-top: 10px;
+	background: black;
+	color: white;
+	border: 2px solid black;
+	font-size: 14px;
+	font-family: 'Merriweather', serif;
 }
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-default {
+    background: black;
+    color: white;
+}
+ 
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    background: #33a6cc;
+}
+ 
+.btn-default:active, .btn-default.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+p {
+	margin-top: 10px;
+	text-align: center;
+	font-weight: bold;
+/*	font-family: 'Meddon', cursive;
+	font-family: 'Mr Dafoe', cursive;*/
+	font-family: 'Mr Bedfort', cursive;
+	font-size: 22px;
+}
+
+/*.player {
+	float: right;
+	margin-right: 20px;
+	text-align: center;
+	font-size: 20px;
+	font-family: 'Merriweather', serif;
+	text-decoration: underline;
+	border: 2px solid black;
+	height: 110px;
+	width: 110px;
+}
+
+#playerOneScore {
+	float: right;
+	margin: 0 auto;
+	position: absolute;
+	margin-left: 18px;
+	margin-top: 30px;
+	border: 1px solid black;
+	text-align: center;
+	font-size: 20px;
+	height: 75px;
+	width: 100px;
+	margin-right: 20px;
+}
+
+
+#playerTwoScore {
+	float: right;
+	margin: 0 auto;
+	position: absolute;
+	margin-left: 150px;
+	margin-top: 30px;
+/*	display: inline;
+	border: 1px solid black;
+	text-align: center;
+	font-size: 20px;
+	height: 75px;
+	width: 100px;
+	margin-right: 20px;
+}
+
+#finalScore {
+	float: right;
+	border: 1px solid black;
+	height: 75px;
+	width: 275px;
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+

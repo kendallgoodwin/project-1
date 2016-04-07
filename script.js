@@ -37,16 +37,22 @@ $('#start').on('click', function(e) {
 	// console.log(shuffleArray(cardFaces));
 	shuffleArray(cardFaces);
 	console.log(shuffledArray);
-
+	playerTurn.html('Player 1 turn')
 	// letsPlay();
 });
 
+var playerTurn = $('#playerTurn')
 
+function player2Turn() {
+	playerTurn.html('Player 2 turn');
+}
+
+function player1Turn() {
+	playerTurn.html('Player 1 turn')
+}
 
 
 $(".cards").on("click", function(e){
-	console.log(e);
-
 	if (e.currentTarget.id === 'card-1') {
 		$(e.target).attr('src', shuffledArray[0]);
 		$(e.target).addClass("clicked");
@@ -137,10 +143,7 @@ $(".cards").on("click", function(e){
 		console.log("player 1");
 		console.log('turn ' + turns);
 		console.log(tempArray);
-		//display player 1
-		// playerOneArray.push()
-		//if pics match player1score++
-		//checkwinner function - if player1score = 10 alertmsg; else return nothing
+		// playerTurn.html('It/s Player 1/s turn')
 		turns++;
 	} else if (turns === 1) {
 		console.log("player 1111");
@@ -148,17 +151,20 @@ $(".cards").on("click", function(e){
 		turns++;
 		console.log(tempArray);
 		checkSameImage(tempArray);
+		setTimeout(player2Turn, 1000)
 	} else if (turns === 2) {
 		console.log("player 2");
 		console.log('turn ' + turns);
 		console.log(tempArray);
 		//display player 2
+		playerTurn.html('Player 2 turn');
 		turns++;
 	} else if (turns === 3) {
 		console.log("player 2222");
 		console.log('turn ' + turns);
 		turns = 0;
 		checkSameImage(tempArray);
+		setTimeout(player1Turn, 1000)
 	}
 });
 
@@ -195,22 +201,10 @@ function checkSameImage(array) {
 
 		runningScore2.html(playerTwoScore);
 	} else {
-		match = false;
 		console.log(tempArray);
 		console.log("NO MATCH");
 		console.log('matches: ' + matches)
-		//$(".clicked").attr("src", "m.jpg")
-
-
-
-		// console.log(array[0]);
-		// console.log(array[1]);
-		// setTimeout(function() {
-		// 	turnOverCard("card-1");
-		// 	turnOverCard("card-2");
-		// }, 3000);
-		setTimeout(turnOverCard, 2000);
-
+		setTimeout(turnOverCard, 1000);
 		console.log('player one score: ' + playerOneScore);
 		console.log('player two score: ' + playerTwoScore);
 		tempArray = [];
@@ -230,6 +224,7 @@ function matchingCards(e) {
 }
 
 
+var finalScore = $('#finalScore');
 
 var getWinner = function() {
 	var winner;
@@ -237,12 +232,11 @@ var getWinner = function() {
 		return;
 	} else if (matches === 9 && playerOneScore > playerTwoScore) {
 		// winner = Player 1;
+		finalScore.html('Player 1 wins!')
 		console.log('Player 1 wins');
-	} else if (matches === 9 && playerOneScore === playerTwoScore) {
-		// winner = tie;
-		console.log("It/s a tie!");
 	} else if (matches === 9 && playerOneScore < playerTwoScore) {
 		// winner = Player 2;
+		finalScore.html('Player 2 wins!')
 		console.log('Player 2 wins')
 	} 
 };
@@ -257,153 +251,29 @@ var getWinner = function() {
 // 	$(".clicked").removeClass("clicked")
 // }
 
-// function turnOverCard(e) {
-// 	$(e.target).attr('src', 'm.jpg')
-// };
-
-
-// $('#card-1').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[0]);
-// 	console.log(shuffledArray[0]);
-// 	tempArray.push(shuffledArray[0]);
-// })
-
-// $('#card-2').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[1]);
-// 	console.log(shuffledArray[1]);
-// 	tempArray.push(shuffledArray[1]);
-// 	// console.log(tempArray);
-// })
-
-// $('#card-3').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[2]);
-// 	console.log(shuffledArray[2]);
-// 	tempArray.push(shuffledArray[2]);
-// })
-
-// $('#card-4').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[3]);
-// 	console.log(shuffledArray[3]);
-// 	tempArray.push(shuffledArray[3]);
-// })
-
-// $('#card-5').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[4]);
-// 	console.log(shuffledArray[4]);
-// 	tempArray.push(shuffledArray[4]);
-// })
-
-// $('#card-6').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[5]);
-// 	console.log(shuffledArray[5]);
-// 	tempArray.push(shuffledArray[5]);
-// })
-
-// $('#card-7').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[6]);
-// 	console.log(shuffledArray[6]);
-// 	tempArray.push(shuffledArray[6]);
-// })
-
-// $('#card-8').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[7]);
-// 	console.log(shuffledArray[7]);
-// 	tempArray.push(shuffledArray[7]);
-// })
-
-// $('#card-9').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[8]);
-// 	console.log(shuffledArray[8]);
-// 	tempArray.push(shuffledArray[8]);
-// })
-
-// $('#card-10').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[9]);
-// 	console.log(shuffledArray[9]);
-// 	tempArray.push(shuffledArray[9]);
-// })
-
-// $('#card-11').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[10]);
-// 	console.log(shuffledArray[10]);
-// 	tempArray.push(shuffledArray[10]);
-// })
-
-// $('#card-12').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[11]);
-// 	console.log(shuffledArray[11]);
-// 	tempArray.push(shuffledArray[11]);
-// })
-
-// $('#card-13').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[12]);
-// 	$(e.target).addClass("clicked");
-// 	// $(e.target).addClass("match");
-// 	tempArray.push(shuffledArray[12]);
-// })
-
-// $('#card-14').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[13]);
-// 	$(e.target).addClass("clicked");
-// 	// $(e.target).addClass("match");
-// 	tempArray.push(shuffledArray[13]);
-// })
-
-// $('#card-15').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[14]);
-// 	$(e.target).addClass("clicked");
-// 	// $(e.target).addClass("match");
-// 	tempArray.push(shuffledArray[14]);
-// })
-
-// $('#card-16').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[15]);
-// 	$(e.target).addClass("clicked");
-// 	// $(e.target).addClass("match");
-// 	tempArray.push(shuffledArray[15]);
-// })
-
-// $('#card-17').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[16]);
-// 	$(e.target).addClass("clicked");
-// 	// $(e.target).addClass("match");
-// 	tempArray.push(shuffledArray[16]);
-// })
-
-// $('#card-18').on('click', function(e) {
-// 	$(e.target).attr('src', shuffledArray[17]);
-// 	$(e.target).addClass("clicked");
-// 	// $(e.target).addClass("match");
-// 	tempArray.push(shuffledArray[17]);
-// })
-
-
-// var displayImage = function(e) {
-// 	var target = $(event.target);
-// 	$(target).attr('src', shuffledArray[0]);
-// 	usedImages.push(shuffledArray[0]);
-// };
 
 
 // var playAgain = $('#reset');
 
-// $(playAgain).on('click', function(e) {
-// 	$('images').attr('src', 'm.jpg');
-// 	// $('card-1').find('img').attr('src', 'm.jpg');
-// 	// $('card-2').find('img').attr('src', 'm.jpg');
-// 	// $('card-3').find('img').attr('src', 'm.jpg');
-// 	// $('card-4').find('img').attr('src', 'm.jpg');
-// 	// $('card-5').find('img').attr('src', 'm.jpg');
-// 	// $('card-6').find('img').attr('src', 'm.jpg');
-// 	// $('card-7').find('img').attr('src', 'm.jpg');
-// 	// $('card-8').find('img').attr('src', 'm.jpg');
-// 	// $('card-9').find('img').attr('src', 'm.jpg');
-// 	// $('card-10').find('img').attr('src', 'm.jpg');
-// 	// $('card-11').find('img').attr('src', 'm.jpg');
-// 	// $('card-12').find('img').attr('src', 'm.jpg');
-// 	// $('card-13').find('img').attr('src', 'm.jpg');
-// 	// $('card-14').find('img').attr('src', 'm.jpg');
-// 	// $('card-15').find('img').attr('src', 'm.jpg');
-// 	// $('card-16').find('img').attr('src', 'm.jpg');
-// 	console.log('this works');
-// })
+$('#reset').on('click', function(e) {
+	if (matches === 9) {
+		// $('.images').attr('src', 'm.jpg');
+	$('card-1').attr('src', 'm.jpg');
+	$('card-2').attr('src', 'm.jpg');
+	$('card-3').find('img').attr('src', 'm.jpg');
+	$('card-4').find('img').attr('src', 'm.jpg');
+	$('card-5').find('img').attr('src', 'm.jpg');
+	$('card-6').find('img').attr('src', 'm.jpg');
+	$('card-7').find('img').attr('src', 'm.jpg');
+	$('card-8').find('img').attr('src', 'm.jpg');
+	$('card-9').find('img').attr('src', 'm.jpg');
+	$('card-10').find('img').attr('src', 'm.jpg');
+	$('card-11').find('img').attr('src', 'm.jpg');
+	$('card-12').find('img').attr('src', 'm.jpg');
+	$('card-13').find('img').attr('src', 'm.jpg');
+	$('card-14').find('img').attr('src', 'm.jpg');
+	$('card-15').find('img').attr('src', 'm.jpg');
+	$('card-16').find('img').attr('src', 'm.jpg');
+	// console.log('this works');
+	}
+})
