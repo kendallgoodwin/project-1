@@ -14,6 +14,11 @@ Then, I assigned an on click event that would add a class of "clicked" to the se
 Once 9 matches have been recorded and all cards have been turned face-up, the getWinner function compares the recorded scores to determine and declare the winner of the round. 
 
 
+Installation
+============
+git clone
+
+
 Technologies Used 
 =================
 + Bootstrap
