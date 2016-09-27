@@ -78,6 +78,12 @@ p {
 	font-size: 21px;
 }
 
+@media (max-width: 400px) {
+	.cards {
+		padding: 5px !important;
+	}
+}
+
 
 
 
